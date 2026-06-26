@@ -1,9 +1,16 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useAuth } from "../auth";
 import { Icon } from "./Icon";
 
 export function Header() {
   const { user, logout } = useAuth();
+  const navigate = useNavigate();
+
+  function handleLogout() {
+    logout();
+    navigate("/connexion");
+  }
+
   return (
     <header className="site-header">
       <div className="container inner">
@@ -26,7 +33,7 @@ export function Header() {
                 <Link to="/profil" style={{ fontSize: ".9rem", color: "var(--mist)", textDecoration: "none" }}>
                   {user.full_name || user.phone}
                 </Link>
-                <button className="btn btn-ghost" onClick={logout}>Se deconnecter</button>
+                <button className="btn btn-ghost" onClick={handleLogout}>Se deconnecter</button>
               </>
             ) : (
               <>

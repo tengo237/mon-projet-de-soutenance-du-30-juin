@@ -1,4 +1,4 @@
-services:
+﻿services:
   db:
     image: postgres:16-alpine
     environment:
@@ -7,12 +7,13 @@ services:
       POSTGRES_PASSWORD: mboastay
     volumes:
       - mboa_pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U mboastay"]
       interval: 5s
       timeout: 3s
       retries: 10
-
   backend:
     build: ./backend
     environment:
@@ -27,7 +28,6 @@ services:
         condition: service_healthy
     ports:
       - "8000:8000"
-
   frontend:
     build: ./frontend
     environment:
@@ -36,6 +36,5 @@ services:
       - backend
     ports:
       - "5173:5173"
-
 volumes:
   mboa_pgdata:
