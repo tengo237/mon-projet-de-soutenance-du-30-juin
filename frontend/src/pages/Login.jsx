@@ -64,11 +64,7 @@ export default function Login() {
             {mode === "login" ? "Creer un compte" : "Se connecter"}
           </button>
         </p>
-        {mode === "login" && (
-          <p style={{ marginTop: 14, fontSize: ".8rem", color: "var(--mist)", borderTop: "1px solid var(--line)", paddingTop: 12 }}>
-            Compte demo : <span className="mono">690000000</span> / <span className="mono">demo1234</span>
-          </p>
-        )}
+        
       </div>
     </div>
   );

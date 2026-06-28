@@ -21,7 +21,7 @@ export function Header() {
             <NavLink to="/assistant">Assistant</NavLink>
             {user && <NavLink to="/sejours">Mes sejours</NavLink>}
             {user && !user.is_staff && (
-              <NavLink to="/mon-hotel" className="btn btn-primary"
+              <NavLink to="/mon-hotel" className="btn "
                 style={{ padding: ".35rem .9rem", fontSize: ".88rem" }}>
                 + Mon hotel
               </NavLink>
@@ -37,7 +37,7 @@ export function Header() {
               </>
             ) : (
               <>
-                <Link to="/mon-hotel" className="btn btn-primary" style={{ fontSize: ".88rem" }}>
+                <Link to="/mon-hotel" className="btn " style={{ fontSize: ".88rem" }}>
                   Mettre mon hotel en ligne
                 </Link>
                 <Link to="/connexion" className="btn btn-ghost">Se connecter</Link>
